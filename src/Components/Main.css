@@ -1,0 +1,29 @@
+
+.main-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto auto auto;
+    grid-template-areas: "stats battle map" "unused unused unused";
+    background-color: #fff;
+    color: #444;
+}
+
+.stats {
+    grid-area: stats;
+    background-color: aqua;
+}
+
+.battle {
+    grid-area: battle;
+    background-color: yellowgreen;
+}
+
+.map {
+    grid-area: map;
+    background-color: indianred;
+}
+
+.unused {
+    grid-area: unused;
+    background-color: greenyellow;
+}
