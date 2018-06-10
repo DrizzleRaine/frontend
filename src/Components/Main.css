@@ -1,7 +1,7 @@
 
 .main-container {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 5px;
     grid-template-columns: auto auto auto;
     grid-template-areas: "stats battle map" "unused unused unused";
     background-color: #fff;
