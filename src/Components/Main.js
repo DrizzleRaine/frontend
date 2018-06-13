@@ -26,8 +26,8 @@ class Main extends Component {
     });
     request
       .then(res => res.json())
-      .then(character => {
-        this.setState({character})
+      .then(state => {
+        this.setState(state) // HACK: merge it better than this
       })
       .catch(err => console.error(`🚨 Error when performing "${action}"\n`, err))
     // return the original promise so that consumers can see the status code
@@ -50,7 +50,7 @@ class Main extends Component {
             <button onClick={event => this.perform('move', {direction:'east'})}>East</button>
           </div>
         </div>
-        <div className="unused">{JSON.stringify(this.state.character)}</div>
+        <div className="unused">{JSON.stringify(this.state.character)} {JSON.stringify(this.state.message)}</div>
       </div>
     );
   }
