@@ -8,7 +8,7 @@ build:
         code: |
           npm run build
 
-deploy:
+staging:
   steps:
     - add-to-known_hosts:
         hostname: $SERVER_HOSTNAME
@@ -18,4 +18,4 @@ deploy:
         name: Push to dokku
         code: |
           touch ./build/.static
-          tar -cvO ./build/* ./build/.static | ssh dokku@alfox.verworn.ca tar:in frontend
+          tar -cvO ./build/* ./build/.static | ssh dokku@$SERVER_HOSTNAME tar:in frontend
