@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-const uri = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8080'
+import User from '../API/login'
 
 class Login extends Component {
 
@@ -10,35 +9,20 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    this.loginStatus();
+    User.status()
+      .then(user => {
+        this.setState({player: user})
+      });
   }
 
-  loginStatus() {
-    return fetch(`${uri}/login`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    }).then(res => {
-      if(res.status < 400) return res.json()
-      else return null
-    }).then(user => {
-      this.setState({...this.state, player: user})
+  login() {
+    User.loginAs(this.state.username)
+    .then(result => {
+      this.setState({player: result})
       if(this.props.onLogin) {
-        this.props.onLogin(this.state.player);
+        this.props.onLogin(result);
       }
     })
-  }
-
-  loginAs(username) {
-    return fetch(`${uri}/login?user=${username}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    }).then(res => this.loginStatus())
   }
 
   render() {
@@ -46,9 +30,10 @@ class Login extends Component {
       return (
         <div className="login-container">
           <label>Login</label>
-          <input type="text" value={this.state.username} onChange={e => this.setState({...this.state, username: e.target.value})} />
-          <button onClick={event => this.loginStatus()}>Get Status</button>
-          <button onClick={event => this.loginAs(this.state.username)}>Login</button>
+          <input type="text" value={this.state.username} onChange={e => this.setState({username: e.target.value})} />
+          <label>Password</label>
+          <input type="text" value="not used" onChange={e => true} />
+          <button onClick={e => this.login()}>Login</button>
         </div>
       );
     } else {
