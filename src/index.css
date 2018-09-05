@@ -2,4 +2,30 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+button {
+  background: lightgrey;
+  border-radius: 0.2rem;
+  border: 2px darkgrey solid;
+  box-shadow: 0 0 0 #333;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.6em 0.8em;
+  text-transform: uppercase;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+button:hover, button:focus {
+  box-shadow: 0 2px 0 rgba(0,0,0,0.6);
+  transform: translateX(0px) translateY(-2px);
+}
+button:active, button.inactive {
+  transition: none;
+  box-shadow: 0 0 0 #333;
+  transform: translateX(0px) translateY(0px);
+}
+button:focus {
+  outline: 0px solid transparent;
+  box-shadow: inherit, 0 0 5px blue;
 }

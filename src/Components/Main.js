@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { perform } from '../API'
 import './Main.css';
 import Login from './Login.js';
+import db from '../store'
 
 
 class Main extends Component {
