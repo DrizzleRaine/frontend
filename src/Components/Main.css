@@ -1,9 +1,11 @@
 
 .main-container {
     display: grid;
+    height: 100vh;
     grid-gap: 5px;
     grid-template-columns: auto auto auto;
-    grid-template-areas: "stats battle map" "unused unused unused";
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: "stats battle map" "account unused unused";
     background-color: #fff;
     color: #444;
 }
@@ -11,6 +13,9 @@
 .stats {
     grid-area: stats;
     background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .battle {
@@ -22,14 +27,49 @@
     grid-area: map;
     background-color: indianred;
 }
-.map .navigation button {
-    margin: 0.5em;
+
+.map .navigation {
+    width: 250px;
+    height: 100px;
+    margin: 2em auto;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "unused1 north unused2" "west unused3 east" "unused4 south unused5";
 }
-.map .navigation button:first-child {
-    margin-left: 1em;
+.map .navigation > * {
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.north {
+    grid-area: north;
+}
+.west {
+    grid-area: west;
+}
+.east {
+    grid-area: east;
+}
+.south {
+    grid-area: south;
+}
+
+.account {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .unused {
     grid-area: unused;
     background-color: greenyellow;
+    overflow-y: scroll;
+    padding: 1em;
+}
+.unused p {
+    margin: 0;
 }

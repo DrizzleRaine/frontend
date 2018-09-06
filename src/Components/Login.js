@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import User from '../API/login'
+import './Login.css'
 
 class Login extends Component {
 
@@ -30,9 +31,8 @@ class Login extends Component {
       return (
         <div className="login-container">
           <label>Login</label>
-          <input type="text" value={this.state.username} onChange={e => this.setState({username: e.target.value})} />
-          <label>Password</label>
-          <input type="text" value="not used" onChange={e => true} />
+          <input placeholder="Username" type="text" value={this.state.username} onChange={e => this.setState({username: e.target.value})} />
+          <input placeholder="Password (not used)" type="text" onChange={e => true} />
           <button onClick={e => this.login()}>Login</button>
         </div>
       );

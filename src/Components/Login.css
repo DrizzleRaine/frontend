@@ -5,16 +5,15 @@
 	border: 2px solid #a33e3e;
 	display: flex;
 	flex-direction: column;
-	margin: calc(50vh - 250px) auto;
 	padding: 1em;
 	text-align: center;
-	width: 300px;
+	width: 250px;
 	border-radius: 0.3rem;
 	box-shadow: 0 0.3rem 0 0 #772D2D;
 }
 
 .login-container label {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	display: block;
 	font-weight: bold;
 	color: white;
@@ -27,6 +26,9 @@
 	border: 1px solid #a33e3e;
 	padding: 0.5em;
 	color: white;
+}
+.login-container input::placeholder {
+	color: rgba(255, 255, 255, 0.4);
 }
 .login-container input:focus {
 	outline-color: white;

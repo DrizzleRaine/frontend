@@ -19,9 +19,9 @@ function status() {
 function loginAs(username) {
   return fetch(`${uri}/login?user=${username}`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    // headers: {
+    //   'Content-Type': 'application/json'
+    // },
     credentials: 'include'
   }).then(res => status())
 }
