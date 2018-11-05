@@ -20,7 +20,7 @@ export function perform(action, parameters) {
       if(res.status >= 400) {
         console.error(`🚨 Error when performing "${action}"\n`, res)
       }
-    })
+    });
   // return the original promise so that consumers can see the status code
   return request
 }
