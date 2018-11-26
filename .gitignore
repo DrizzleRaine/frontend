@@ -9,6 +9,7 @@
 src/main/resources/static/index.js
 
 # misc
+.cache
 .DS_Store
 .env.local
 .env.development.local
